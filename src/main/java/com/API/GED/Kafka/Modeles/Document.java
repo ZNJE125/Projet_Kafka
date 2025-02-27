@@ -1,12 +1,6 @@
 package com.API.GED.Kafka.Modeles;
 
 
-import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.concurrent.ConcurrentHashMap;
-
-
 public class Document {
 
     public Document(Integer identifiant, String nom, Type type, String contenu) {

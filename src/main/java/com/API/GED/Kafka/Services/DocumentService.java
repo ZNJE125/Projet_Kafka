@@ -2,10 +2,8 @@ package com.API.GED.Kafka.Services;
 
 import com.API.GED.Kafka.Modeles.Document;
 import org.springframework.stereotype.Service;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 @Service
 public class DocumentService {
 
@@ -27,7 +25,6 @@ public class DocumentService {
     public Document getDocument(Integer id){
         documentProducer.sendEvent("GET", id);
         return documentStore.get(id);
-
     }
 
     public void deleteDocument(Integer id){
@@ -35,8 +32,5 @@ public class DocumentService {
             documentStore.remove(id);
             documentProducer.sendEvent("DELETE" ,id);
         }
-
-
     }
-
 }
