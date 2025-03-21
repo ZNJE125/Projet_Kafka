@@ -1,6 +1,6 @@
-package com.API.GED.Kafka.Services;
+package com.API.GED.Kafka.services;
 
-import com.API.GED.Kafka.Modeles.Document;
+import com.API.GED.Kafka.modeles.Document;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,10 +16,10 @@ public class DocumentService {
     }
 
     public void addDocument(Document document) {
-        document.setIdentifiant(idCounter++);
-        documentStore.put(document.getIdentifiant(), document);
+        document.setId(idCounter++);
+        documentStore.put(document.getId(), document);
         //String eventMessage = "CREATE, Document ajouté : " + document.toString();
-        documentProducer.sendEvent("CREATE", document.getIdentifiant());
+        documentProducer.sendEvent("CREATE", document.getId());
     }
 
     public Document getDocument(Integer id){

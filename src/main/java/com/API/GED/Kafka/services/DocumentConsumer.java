@@ -1,4 +1,4 @@
-package com.API.GED.Kafka.Services;
+package com.API.GED.Kafka.services;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

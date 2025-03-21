@@ -1,4 +1,4 @@
-package com.API.GED.Kafka.Modeles;
+package com.API.GED.Kafka.modeles;
 
 public enum Type {
 

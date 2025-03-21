@@ -1,7 +1,7 @@
-package com.API.GED.Kafka.Controllers;
+package com.API.GED.Kafka.controllers;
 
-import com.API.GED.Kafka.Modeles.Document;
-import com.API.GED.Kafka.Services.DocumentService;
+import com.API.GED.Kafka.modeles.Document;
+import com.API.GED.Kafka.services.DocumentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

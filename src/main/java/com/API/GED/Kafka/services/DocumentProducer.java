@@ -1,4 +1,4 @@
-package com.API.GED.Kafka.Services;
+package com.API.GED.Kafka.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,7 +14,7 @@ public class DocumentProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private static final String TOPIC = "document-events";
-    private final ObjectMapper objectMapper = new ObjectMapper(); // ✅ Jackson pour convertir en JSON
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public DocumentProducer(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
@@ -22,15 +22,15 @@ public class DocumentProducer {
 
     public void sendEvent(String operationType, Integer documentId) {
         try {
-            // ✅ Construire le message JSON
+            // Construire le message dans un HashMap
             Map<String, Object> event = new HashMap<>();
             event.put("type", operationType);
             event.put("documentId", documentId);
             event.put("timestamp", Instant.now().toString());
 
+            //Convertir le message en JSON
             String jsonMessage = objectMapper.writeValueAsString(event);
 
-            // ✅ Envoyer à Kafka
             kafkaTemplate.send(TOPIC, jsonMessage);
             System.out.println("📤 Événement envoyé : " + jsonMessage);
 
